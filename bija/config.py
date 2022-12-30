@@ -17,5 +17,6 @@ EXTENDED_JSON_FILE = os.path.join(THIS_DIR,'relays.json')
 if os.path.exists(EXTENDED_JSON_FILE):
     with open(EXTENDED_JSON_FILE,'r') as f:
         my_list = json.loads(f.read())
+        my_list = list(set(my_list))
     DEFAULT_RELAYS.extend(my_list)
 
