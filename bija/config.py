@@ -7,9 +7,13 @@ DEFAULT_RELAYS = [
     'wss://relay.damus.io	'
 ]
 
+import os
+import sys
 import json
-if os.path.exists('relays.json'):
-    with open('relays.json','r') as f:
-        mylist = json.loads(f.read())
-    DEFAULT_RELAYS.extends(mylist)
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+EXTENDED_JSON_FILE = os.path.join(THIS_DIR,'relays.json')
+if os.path.exists(EXTENDED_JSON_FILE):
+    with open(EXTENDED_JSON_FILE,'r') as f:
+        my_list = json.loads(f.read())
+    DEFAULT_RELAYS.extends(my_list)
 
