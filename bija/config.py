@@ -10,10 +10,12 @@ DEFAULT_RELAYS = [
 import os
 import sys
 import json
+
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 EXTENDED_JSON_FILE = os.path.join(THIS_DIR,'relays.json')
+
 if os.path.exists(EXTENDED_JSON_FILE):
     with open(EXTENDED_JSON_FILE,'r') as f:
         my_list = json.loads(f.read())
-    DEFAULT_RELAYS.extends(my_list)
+    DEFAULT_RELAYS.extend(my_list)
 
